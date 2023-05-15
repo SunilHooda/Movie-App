@@ -26,16 +26,16 @@ To run my application you simply need to clone the project and run the html file
 
 ## Home Page
 
-![HomePage]()
+![HomePage](https://github.com/SunilHooda/Movie-App/blob/main/Images/Homepage.png)
 
 ## Search Movies Section
 
-![Searched Movies]()
+![Searched Movies](https://github.com/SunilHooda/Movie-App/blob/main/Images/Search%20Result.png)
 
 ## Single Movie Info PopUp
 
-![MovieInfoPopUp]()
+![MovieInfoPopUp](https://github.com/SunilHooda/Movie-App/blob/main/Images/SingleMoviePopUp.png)
 
 ## Favourite Movies Section
 
-![Favourite Movies]()
+![Favourite Movies](https://github.com/SunilHooda/Movie-App/blob/main/Images/Favourite.png)
