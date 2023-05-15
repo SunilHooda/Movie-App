@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetStar</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header>
+      <h2 class="app-title">NetStar</h2>
+      <h3 class="app-title" id="showFavorites">Favorites</h3>
+
+      <div>
+        <input
+          type="text"
+          id="search"
+          class="search"
+          placeholder="Search here..."
+          oninput="debounce(main,1000)"
+        />
+      </div>
+    </header>
+
+    <div class="searchMoviesContainer">
+      <div class="result-head">
+        <h3>Results...</h3>
+        <!-- or we can use uni-code of x icon &#10006; -->
+        <h2>X</h2>
+      </div>
+
+      <div class="searchMovies"></div>
+    </div>
+
+    <div class="container">
+      <div class="movies-container favorites" id="favorites">
+        <div class="section-head">
+          <h1>Favorites</h1>
+          <h2>X</h2>
+        </div>
+
+        <div class="movies-grid"></div>
+      </div>
+
+      <div class="movies-container trending">
+        <div class="section-head">
+          <h1>Trending Movies</h1>
+        </div>
+
+        <div class="movies-grid"></div>
+      </div>
+    </div>
+
+    <div class="popUp-container"></div>
+  </body>
+</html>
+<script src="./index.js"></script>
