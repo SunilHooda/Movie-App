@@ -1,7 +1,10 @@
 const api_Key = "187bd7eac6a993784bcfde66eb195472";
 const image_path = `https://image.tmdb.org/t/p/w1280`;
 
-let dataChanged = false;
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const current = document.getElementById("current");
+
 let favoriteMovies;
 function fetchFavoriteMoviesFromLS() {
   favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
@@ -270,14 +273,39 @@ function appendFavoriteMovie(data) {
 }
 appendFavoriteMovie(favoriteMovies);
 
-// Trending Movies
-async function get_trending_movies() {
-  let url = `https://api.themoviedb.org/3/trending/all/day?api_key=${api_Key}`;
+// Trending Movies with pagination
+
+let currentPage = 1;
+let nextPage;
+let prevPage;
+let totalPages = 100;
+
+async function get_trending_movies(page = 1) {
+  let url = `https://api.themoviedb.org/3/trending/all/day?api_key=${api_Key}&page=${page}`;
 
   let res = await fetch(url);
   let data = await res.json();
   //console.log(data);
   appendTrendingMovie(data.results);
+
+  /*Setting pages acording to result */
+  currentPage = data.page;
+  nextPage = currentPage + 1;
+  prevPage = currentPage - 1;
+
+  current.innerText = currentPage;
+
+  /*Disable and Enable clicking on Prev and Next */
+  if (currentPage === 1) {
+    prev.classList.add("disabled");
+    next.classList.remove("disabled");
+  } else if (currentPage >= totalPages) {
+    prev.classList.remove("disabled");
+    next.classList.add("disabled");
+  } else {
+    prev.classList.remove("disabled");
+    next.classList.remove("disabled");
+  }
 }
 get_trending_movies();
 
@@ -343,3 +371,15 @@ function appendMovieCard(el, container) {
   div.append(imgDiv, InfoDiv);
   container.append(div);
 }
+
+prev.addEventListener("click", () => {
+  if (prevPage > 0) {
+    get_trending_movies(prevPage);
+  }
+});
+
+next.addEventListener("click", () => {
+  if (nextPage <= totalPages) {
+    get_trending_movies(nextPage);
+  }
+});

@@ -225,6 +225,33 @@ header {
   margin: 0.2rem 0;
 }
 
+/*Pagination Styling*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 30px;
+  color: white;
+}
+
+.page {
+  cursor: pointer;
+  padding: 20px;
+}
+
+.page.disabled {
+  cursor: not-allowed;
+  color: grey;
+}
+
+.current {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 3px solid greenyellow;
+}
+
 @media all and (max-width: 600px) {
   header {
     justify-content: center;
