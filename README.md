@@ -12,6 +12,7 @@ NetStar is a single page TMBD API based javascript movie app where user can sear
 - Working with External API request.
 - Code cleanliness and folder structure.
 - Search Functionality with Debouncing to reduce unnecessary API calling.
+- Pagination
 
 ## Built With
 
